@@ -2,5 +2,9 @@
   "name": "senate-stacks",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.2",
+    "express": "^4.16.3"
+  }
 }
