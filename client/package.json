@@ -6,6 +6,7 @@
     "D": "^1.0.0",
     "axios": "^0.18.0",
     "eslint": "^4.19.1",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-loading-animation": "^1.4.0",
