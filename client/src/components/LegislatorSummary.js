@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Table, Header } from 'semantic-ui-react';
 
-const LegislatorSummary = () => (
+const LegislatorSummary = props => (
   <div>
     <p style={{ textAlign: 'center', marginBottom: '4em' }}>
       Legislator summary
@@ -19,7 +20,7 @@ const LegislatorSummary = () => (
               <Header.Content>State</Header.Content>
             </Header>
           </Table.Cell>
-          <Table.Cell>{this.props.obj.state}</Table.Cell>
+          <Table.Cell>{props.obj.state}</Table.Cell>
         </Table.Row>
 
         <Table.Row>
@@ -28,7 +29,7 @@ const LegislatorSummary = () => (
               <Header.Content>Chamber</Header.Content>
             </Header>
           </Table.Cell>
-          <Table.Cell>{this.props.obj.chamber}</Table.Cell>
+          <Table.Cell>{props.obj.chamber}</Table.Cell>
         </Table.Row>
 
         <Table.Row>
@@ -37,7 +38,7 @@ const LegislatorSummary = () => (
               <Header.Content>Next election</Header.Content>
             </Header>
           </Table.Cell>
-          <Table.Cell>{this.props.obj.next_election}</Table.Cell>
+          <Table.Cell>{props.obj.next_election}</Table.Cell>
         </Table.Row>
 
         <Table.Row>
@@ -46,7 +47,12 @@ const LegislatorSummary = () => (
               <Header.Content>Cash spent</Header.Content>
             </Header>
           </Table.Cell>
-          <Table.Cell>{this.props.obj.spent}</Table.Cell>
+          <Table.Cell>
+            {Number(props.obj.spent).toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            })}
+          </Table.Cell>
         </Table.Row>
 
         <Table.Row>
@@ -55,7 +61,12 @@ const LegislatorSummary = () => (
               <Header.Content>Cash on hand</Header.Content>
             </Header>
           </Table.Cell>
-          <Table.Cell>{this.props.obj.cash_on_hand}</Table.Cell>
+          <Table.Cell>
+            {Number(props.obj.cash_on_hand).toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            })}
+          </Table.Cell>
         </Table.Row>
 
         <Table.Row>
@@ -64,11 +75,27 @@ const LegislatorSummary = () => (
               <Header.Content>Cash total</Header.Content>
             </Header>
           </Table.Cell>
-          <Table.Cell>{this.props.obj.total}</Table.Cell>
+          <Table.Cell>
+            {Number(props.obj.total).toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            })}
+          </Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
   </div>
 );
+
+LegislatorSummary.propTypes = {
+  obj: PropTypes.shape({
+    state: PropTypes.string.isRequired,
+    chamber: PropTypes.string.isRequired,
+    next_election: PropTypes.string.isRequired,
+    spent: PropTypes.string.isRequired,
+    cash_on_hand: PropTypes.string.isRequired,
+    total: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default LegislatorSummary;
