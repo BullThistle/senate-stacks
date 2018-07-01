@@ -4,7 +4,7 @@ import axios from 'axios';
 export default class LegislatorService {
   getLegislatorsFromState(states, callback) {
     axios
-      .get(`http://localhost:6200/${states}`)
+      .get(`/${states}`)
       .then((response) => {
         callback(response.data);
       })
@@ -15,9 +15,9 @@ export default class LegislatorService {
 
   getLegislator(cid, callback) {
     axios
-      .get(`http://localhost:6200/legislator/${cid}`)
+      .get(`/legislator/${cid}`)
       .then((response) => {
-        callback(response.data);
+        callback(response.data.response.summary['@attributes']);
       })
       .catch(() => {
         callback(null);
@@ -26,9 +26,9 @@ export default class LegislatorService {
 
   getLegislativeContributor(cid, callback) {
     axios
-      .get(`http://localhost:6200/legislativeContributor/${cid}`)
+      .get(`/legislativeContributor/${cid}`)
       .then((response) => {
-        callback(response.data);
+        callback(response.data.response.contributors.contributor);
       })
       .catch(() => {
         callback(null);
