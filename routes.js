@@ -8,9 +8,9 @@ const apiKey = process.env.OPEN_SECRETS_KEY;
 router.route('/legislator/:cid').get(function(req, res) {
   const cid = req.params.cid;
 
-  const candUrl = `https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&cycle=2018&apikey=${apiKey}&output=json`;
+  const candUrl = `http://www.opensecrets.org/api/?method=candSummary&cid=${cid}&cycle=2018&apikey=${apiKey}&output=json`;
 
-  request(candUrl, function(err, response, body) {
+  http: request(candUrl, function(err, response, body) {
     if (body === 'Resource not found') {
       res.send({ status: 'Network error' });
       console.log('Api for legislator is not working');
@@ -23,7 +23,6 @@ router.route('/legislator/:cid').get(function(req, res) {
       if (cand.response == undefined) {
         console.log('legislators.response is undefined');
       } else {
-        console.log(cand);
         res.json(cand);
       }
     }
@@ -49,7 +48,6 @@ router.route('/legislativeContributor/:cid').get(function(req, res) {
       if (contribs.response == undefined) {
         console.log('legislators.response is undefined');
       } else {
-        console.log(contribs);
         res.json(contribs);
       }
     }
@@ -57,7 +55,6 @@ router.route('/legislativeContributor/:cid').get(function(req, res) {
 });
 
 router.route('/:state').get(function(req, res) {
-  console.log('HI THERE');
   const state = req.params.state;
   const url = `https://www.opensecrets.org/api/?method=getLegislators&id=${state}&apikey=${apiKey}&output=json`;
 
