@@ -37,7 +37,10 @@ export default class State extends Component {
       this.state.response.legislator instanceof Array
     ) {
       return this.state.response.legislator.map(object => (
-        <LegislatorCard obj={object['@attributes']} />
+        <LegislatorCard
+          key={object['@attributes'].firstlast}
+          obj={object['@attributes']}
+        />
       ));
     }
     return undefined;
