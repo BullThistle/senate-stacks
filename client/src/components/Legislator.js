@@ -20,20 +20,10 @@ export default class Legislator extends Component {
   componentDidMount() {
     const { cid } = this.props.match.params;
     this.legService.getLegislator(cid, (data) => {
-      const newState = {
-        cand_name: data.response.summary['@attributes'].cand_name,
-        cash_on_hand: data.response.summary['@attributes'].cash_on_hand,
-        spent: data.response.summary['@attributes'].spent,
-        chamber: data.response.summary['@attributes'].chamber,
-        next_election: data.response.summary['@attributes'].next_election,
-        state: data.response.summary['@attributes'].state,
-        total: data.response.summary['@attributes'].total,
-      };
-      this.setState({ candidateInformation: newState });
+      this.setState({ candidateInformation: data });
     });
     this.legService.getLegislativeContributor(cid, (data) => {
-      const newState = data.response.contributors.contributor;
-      this.setState({ contributorInformation: newState });
+      this.setState({ contributorInformation: data });
     });
   }
 
