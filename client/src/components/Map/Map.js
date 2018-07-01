@@ -9,9 +9,9 @@ export default class Map extends Component {
     this.mapService = new MapService();
   }
 
-  mapHandler() {
-    window.location.assign(`/${this.event.target.dataset.name.toLowerCase()}`);
-  }
+  mapHandler = (event) => {
+    window.location.assign(`/${event.target.dataset.name.toLowerCase()}`);
+  };
 
   render() {
     return (
