@@ -6,48 +6,13 @@ import { PieChart, Pie, Tooltip } from 'recharts';
 export default class Graph extends Component {
   constructor(props) {
     super(props);
-    this.data = [
-      {
-        name: this.props.obj['0']['@attributes'].org_name,
-        value: this.props.obj['0']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['1']['@attributes'].org_name,
-        value: this.props.obj['1']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['2']['@attributes'].org_name,
-        value: this.props.obj['2']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['3']['@attributes'].org_name,
-        value: this.props.obj['3']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['4']['@attributes'].org_name,
-        value: this.props.obj['4']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['5']['@attributes'].org_name,
-        value: this.props.obj['5']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['6']['@attributes'].org_name,
-        value: this.props.obj['6']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['7']['@attributes'].org_name,
-        value: this.props.obj['7']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['8']['@attributes'].org_name,
-        value: this.props.obj['8']['@attributes'].total / 1000,
-      },
-      {
-        name: this.props.obj['9']['@attributes'].org_name,
-        value: this.props.obj['9']['@attributes'].total / 1000,
-      },
-    ];
+    this.data = [];
+    for (let i = 0; i < 9; i += 1) {
+      this.data.push({
+        name: this.props.obj[`${i}`]['@attributes'].org_name,
+        value: this.props.obj[`${i}`]['@attributes'].total / 1000,
+      });
+    }
   }
 
   render() {
@@ -56,6 +21,7 @@ export default class Graph extends Component {
         <p>Top contributors (in thousands)</p>
         <PieChart width={1000} height={400}>
           <Pie
+            dataKey="value"
             data={this.data}
             cx={500}
             cy={200}
@@ -72,16 +38,5 @@ export default class Graph extends Component {
 }
 
 Graph.propTypes = {
-  obj: PropTypes.shape({
-    0: PropTypes.string.isRequired,
-    1: PropTypes.string.isRequired,
-    2: PropTypes.string.isRequired,
-    3: PropTypes.string.isRequired,
-    4: PropTypes.string.isRequired,
-    5: PropTypes.string.isRequired,
-    6: PropTypes.string.isRequired,
-    7: PropTypes.string.isRequired,
-    8: PropTypes.string.isRequired,
-    9: PropTypes.string.isRequired,
-  }).isRequired,
+  obj: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
