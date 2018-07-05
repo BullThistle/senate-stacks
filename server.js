@@ -25,6 +25,10 @@ app.use('/api/', routes);
 
 app.use(express.static(path.resolve(__dirname, 'client/build')));
 
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/client/build/index.html');
+});
+
 server.listen(PORT, err => {
   if (err) throw err;
 
