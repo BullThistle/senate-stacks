@@ -1,0 +1,12 @@
+.dropdown-container {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .map-container {
+    display: none;
+  }
+  .dropdown-container {
+    display: block;
+  }
+}

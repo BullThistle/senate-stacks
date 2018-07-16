@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import USAMap from 'react-usa-map';
-import MapService from '../../services/MapService';
-import './Map.css';
+import MapService from '../services/MapService';
+import '../styles/Map.css';
 
 export default class Map extends Component {
   constructor(props) {
