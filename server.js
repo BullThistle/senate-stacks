@@ -23,7 +23,7 @@ const PORT = normalizePort(process.env.PORT || 5000);
 const routes = require('./routes');
 app.use('/api/', routes);
 
-app.use(express.static(path.resolve(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
