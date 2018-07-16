@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HeaderMenu from './components/HeaderMenu';
 import Home from './components/Home';
 import State from './components/State';
@@ -7,7 +7,7 @@ import Legislator from './components/Legislator';
 
 const App = () => (
   <div>
-    <Router>
+    <BrowserRouter>
       <div>
         <HeaderMenu />
         <Switch>
@@ -16,7 +16,7 @@ const App = () => (
           <Route path="/legislator/:cid" component={Legislator} />
         </Switch>
       </div>
-    </Router>
+    </BrowserRouter>
   </div>
 );
 
