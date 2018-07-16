@@ -25,7 +25,7 @@ class Home extends Component {
     console.log(data.value);
     this.setState({ selectedStae: data.value });
     window.location.assign(`/${data.value}`);
-  }
+  };
 
   /* eslint-disable class-methods-use-this */
   handleClick(e, data) {
@@ -37,6 +37,12 @@ class Home extends Component {
         <Grid className="centered">
           <Grid.Row>
             <Header as="h1">Senate Stacks</Header>
+          </Grid.Row>
+          <Grid.Row>
+            <Header style={{ marginTop: '-18px' }}>
+              All data collected from OpenSecrets <br /> Select a state to see
+              its legislators
+            </Header>
           </Grid.Row>
           <Grid.Row>
             <div className="map-container">

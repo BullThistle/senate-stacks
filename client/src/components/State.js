@@ -54,6 +54,11 @@ export default class State extends Component {
             <Header as="h1">Legislators</Header>
           </Grid.Row>
           <Grid.Row>
+            <Header style={{ marginTop: '-18px' }}>
+              Select a legislator to see their contributions
+            </Header>
+          </Grid.Row>
+          <Grid.Row>
             {this.loading()}
             <Card.Group className="centered">{this.legislator()}</Card.Group>
           </Grid.Row>
