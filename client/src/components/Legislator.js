@@ -28,7 +28,10 @@ export default class Legislator extends Component {
   }
 
   loading() {
-    if (!this.state.response) {
+    if (
+      this.state.contributorInformation.length === 0 &&
+      Object.keys(this.state.candidateInformation).length === 0
+    ) {
       return <Loading />;
     }
     return undefined;
@@ -60,6 +63,7 @@ export default class Legislator extends Component {
         <Grid columns={2} divided>
           <Grid.Row className="centered">
             <Header>{this.state.candidateInformation.cand_name}</Header>
+            {this.loading()}
           </Grid.Row>
           <Grid.Row>
             <Grid.Column>{this.summary()}</Grid.Column>
