@@ -1,0 +1,20 @@
+.sub-title {
+  height: -10px;
+}
+
+.table-container {
+  display: none;
+}
+
+.graph-container {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .graph-container {
+    display: none;
+  }
+  .table-container {
+    display: block;
+  }
+}

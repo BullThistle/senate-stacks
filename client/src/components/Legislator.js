@@ -66,8 +66,12 @@ export default class Legislator extends Component {
             {this.loading()}
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column>{this.summary()}</Grid.Column>
-            <Grid.Column>{this.graph()}</Grid.Column>
+            <Grid.Column computer={8} tablet={8} mobile={16}>
+              {this.summary()}
+            </Grid.Column>
+            <Grid.Column computer={8} tablet={8} mobile={16}>
+              {this.graph()}
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </Container>

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, Header } from 'semantic-ui-react';
+import '../styles/LegislatorSummary.css';
 
 const LegislatorSummary = props => (
   <div>
-    <p style={{ textAlign: 'center', marginBottom: '4em' }}>
-      Legislator summary
-    </p>
+    <p className="sub-title">Legislator summary</p>
     <Table
       basic="very"
       celled
